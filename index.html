@@ -6,7 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lab 9</title>
-
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+  window.TrackJS && TrackJS.install({ 
+    token: "83447cbe95ea4548b2e173ec119759a9"
+    // for more configuration options, see https://docs.trackjs.com
+  });
+</script>
   <style>
     button {
       margin: 3px;
@@ -102,6 +108,89 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    class CalculatorError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "CalculatorError";
+  }
+}
+
+errorBtns[0].addEventListener('click', () => {
+  console.log("Console log demo");
+});
+
+errorBtns[1].addEventListener('click', () => {
+  console.error("Console error demo");
+});
+
+errorBtns[2].addEventListener('click', () => {
+  console.count("Console count demo");
+});
+
+errorBtns[3].addEventListener('click', () => {
+  console.warn("Console warning demo");
+});
+
+errorBtns[4].addEventListener('click', () => {
+  console.assert(2 + 2 === 5, "Console assert demo: 2 + 2 is not 5");
+});
+
+errorBtns[5].addEventListener('click', () => {
+  console.clear();
+});
+
+errorBtns[6].addEventListener('click', () => {
+  console.dir(document.querySelector('form'));
+});
+
+errorBtns[7].addEventListener('click', () => {
+  console.dirxml(document.querySelector('main'));
+});
+
+errorBtns[8].addEventListener('click', () => {
+  console.group("Console Group Demo");
+  console.log("This message is inside the group.");
+});
+
+errorBtns[9].addEventListener('click', () => {
+  console.log("Ending console group.");
+  console.groupEnd();
+});
+
+errorBtns[10].addEventListener('click', () => {
+  console.table([
+    { name: "Yizhen", lab: "Lab 9", topic: "Console" },
+    { name: "Student", lab: "Lab 9", topic: "Errors" }
+  ]);
+});
+
+errorBtns[11].addEventListener('click', () => {
+  console.time("Timer Demo");
+});
+
+errorBtns[12].addEventListener('click', () => {
+  console.timeEnd("Timer Demo");
+});
+
+errorBtns[13].addEventListener('click', () => {
+  console.trace("Console trace demo");
+});
+
+errorBtns[14].addEventListener('click', () => {
+  let brokenElement = document.querySelector("#does-not-exist");
+  brokenElement.innerHTML = "This will cause a global error";
+});
+
+window.onerror = function(message, source, line, column, error) {
+  console.log("Global Error Caught!");
+  console.log("Message:", message);
+  console.log("Source:", source);
+  console.log("Line:", line);
+  console.log("Column:", column);
+  console.log("Error object:", error);
+
+  return true;
+};
   </script>
 </body>
 
